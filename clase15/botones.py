@@ -2,7 +2,7 @@ import serial
 from tkinter import*
 import tkinter
 
-arduinoData = serial.Serial('COM3',9600)
+arduinoData = serial.Serial('COM10',9600)
 
 def led_on():
     arduinoData.write(b'1')

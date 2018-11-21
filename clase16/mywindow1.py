@@ -1,4 +1,5 @@
 # importar librerias para gui
+import serial
 from tkinter import *
 import tkinter
 ##########################################
@@ -8,9 +9,11 @@ root.geometry("600x400")#wxh
 root.title("mi calculadora")
 root.resizable(FALSE,FALSE)
 root.configure(background="#11BDB7")
+arduinoData = serial.Serial('COM10',9600)
 ##########################################
 def btnclick(valor):
     global operador
+    
     operador=operador+str(valor)
     input_text.set(operador)
 def clear():
@@ -22,6 +25,7 @@ def operacion():
     try:
         
         opera=str(eval(operador))
+        arduinoData.write(b'1')
     except:
         clear()
         opera=("error")
@@ -49,4 +53,4 @@ Boton15 = Button(root, text = "/", width = 7 , height = 3,command=lambda:btnclic
 Boton16 = Button(root, text = "C", width = 7 , height = 3,command=lambda:clear(
     )).place(x=10,y=360)
 #Abrir ventana para el programa
-root.mainloop()
+
