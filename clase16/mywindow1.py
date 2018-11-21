@@ -1,3 +1,4 @@
+# HAROLD CHAMORRO KEVIN MOLINA MARLON DE LA ROSA
 # importar librerias para gui
 import serial
 from tkinter import *
